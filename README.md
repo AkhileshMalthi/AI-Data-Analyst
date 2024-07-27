@@ -1,155 +1,145 @@
-# AI Data Analyst Project ( In Progress )
+# AI Data Analyst with LangChain and Llama Index
 
 ## Overview
 
-This project aims to develop an AI Data Analyst similar to Julius.ai using pre-trained Large Language Models (LLMs). The AI will perform tasks such as data cleaning, data analysis, generating insights, and creating visualizations.
+This project aims to develop an AI Data Analyst application that leverages LangChain and Llama Index to perform data ingestion, retrieval, analysis, and visualization. The application will utilize Retrieval-Augmented Generation (RAG) to provide comprehensive insights based on user-provided data files, similar to Julius.ai.
 
-## Objectives and Requirements
+## Table of Contents
 
-### Objectives
-- Perform data cleaning, analysis, and visualization.
-- Generate insights from various types of data (e.g., financial data, sales data, customer data).
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Requirements
-- User Interface: Web-based, mobile app, or desktop application.
-- Pre-trained LLMs: GPT-3, GPT-4, etc.
-- Computational Resources: Cloud services like AWS, Azure, or Google Cloud.
-- 
+## Features
+
+- **Automated Data Processing**: Automated data cleaning, preprocessing, and analysis.
+- **Insight Generation**: Generates insights from various types of data using advanced language models.
+- **Data Visualization**: Creates interactive visualizations to aid in data interpretation.
+- **User-Friendly Interface**: Web-based interface for easy data input and analysis.
+
 ## Tech Stack
 
-- **Programming Languages**: Python, JavaScript
-- **Backend**: FastAPI, Flask, TensorFlow Serving
-- **Frontend**: React, Angular, Vue.js
-- **Machine Learning**: GPT-3, GPT-4, transfer learning techniques
+- **Backend**: FastAPI, LangChain, Llama Index
+- **Frontend**: React (or another suitable framework)
+- **Machine Learning**: GPT-3, GPT-4, other pre-trained models
 - **Data Processing**: Pandas, NumPy
 - **Visualization**: Matplotlib, Seaborn, Plotly
-- **Deployment**: Docker, Kubernetes, AWS, Azure, Google Cloud
+- **Deployment**: Docker, AWS Free Tier, Google Cloud Free Tier
 - **Version Control**: Git, GitHub
 
-## Development Process
+## Installation
 
-### 1. **Planning and Requirements Gathering**
-- Define the project scope and objectives.
-- Identify the key features and functionalities of the AI Data Analyst.
-- Gather requirements for data sources, user interface, and performance metrics.
-- Create a project roadmap with milestones and deadlines.
+### Prerequisites
 
-### 2. **Setup and Initial Configuration**
-- Set up version control using Git and create a GitHub repository.
-- Configure a development environment with necessary tools and libraries.
-- Define the initial project structure.
+- Python 3.8 or higher
+- Node.js (for frontend development)
+- Docker (for deployment)
 
-### 3. **Data Collection and Preprocessing**
-- Collect the required datasets.
-- Clean and preprocess the data (handle missing values, normalize, etc.).
-- Store the processed data in a suitable format for training and testing.
+### Backend Setup
 
-### 4. **Model Selection and Fine-Tuning**
-- Select the pre-trained LLM (e.g., GPT-4).
-- Fine-tune the model on domain-specific data.
-- Save the fine-tuned model for deployment.
+1. Clone the repository:
 
-### 5. **Backend Development**
-- Develop the API endpoints for model inference using FastAPI or Flask.
-- Implement the data processing pipeline.
-- Set up database connections if necessary.
+    ```bash
+    git clone https://github.com/your-username/ai-data-analyst.git
+    cd ai-data-analyst
+    ```
 
-### 6. **Frontend Development**
-- Design and develop the user interface using React, Angular, or Vue.js.
-- Integrate the frontend with the backend API.
-- Ensure the UI is user-friendly and responsive.
+2. Create a virtual environment and activate it:
 
-### 7. **Testing and Quality Assurance**
-- Conduct unit tests, integration tests, and system tests.
-- Perform user acceptance testing (UAT) to gather feedback.
-- Iterate and improve based on test results and feedback.
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
 
-### 8. **Deployment**
-- Containerize the application using Docker.
-- Set up continuous integration/continuous deployment (CI/CD) pipelines.
-- Deploy the application to a cloud service like AWS, Azure, or Google Cloud.
+3. Install the required Python packages:
 
-### 9. **Maintenance and Monitoring**
-- Monitor the application for performance and reliability.
-- Regularly update the model and application based on new data and feedback.
-- Provide support and handle any issues or bugs that arise.
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Frontend Setup
+
+1. Navigate to the `frontend` directory:
+
+    ```bash
+    cd frontend
+    ```
+
+2. Install the required Node.js packages:
+
+    ```bash
+    npm install
+    ```
+
+## Usage
+
+### Running the Backend
+
+1. Navigate to the project root directory:
+
+    ```bash
+    cd ai-data-analyst
+    ```
+
+2. Run the FastAPI server:
+
+    ```bash
+    uvicorn main:app --reload
+    ```
+
+### Running the Frontend
+
+1. Navigate to the `frontend` directory:
+
+    ```bash
+    cd frontend
+    ```
+
+2. Start the React development server:
+
+    ```bash
+    npm start
+    ```
+
+### Uploading Data and Getting Analysis
+
+1. Open your web browser and navigate to `http://localhost:3000`.
+2. Upload a data file (e.g., CSV).
+3. Click on the "Analyze" button to get insights and visualizations based on the uploaded data.
 
 ## Project Structure
 
-Here is an project structure for the project:
-
-```
+```plaintext
 ai-data-analyst/
 ├── backend/
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── main.py
-│   │   ├── models/
-│   │   │   ├── __init__.py
-│   │   │   └── model.py
-│   │   ├── api/
-│   │   │   ├── __init__.py
-│   │   │   ├── endpoints/
-│   │   │   │   ├── __init__.py
-│   │   │   │   └── analysis.py
-│   │   ├── core/
-│   │   │   ├── __init__.py
-│   │   │   ├── config.py
-│   │   │   └── utils.py
-│   ├── tests/
-│   │   ├── __init__.py
-│   │   ├── test_endpoints.py
-│   │   └── test_models.py
-│   ├── requirements.txt
-│   └── Dockerfile
+│   ├── main.py           # FastAPI application
+│   ├── workflow.py       # LangChain and Llama Index workflow
+│   └── requirements.txt  # Backend dependencies
 ├── frontend/
 │   ├── public/
 │   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   └── styles.css
-│   ├── package.json
-│   └── Dockerfile
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── notebooks/
-│       ├── data_preprocessing.ipynb
-│       ├── model_training.ipynb
-│       └── model_evaluation.ipynb
-├── .gitignore
-├── README.md
-└── docker-compose.yml
-```
+│   ├── package.json      # Frontend dependencies
+│   └── README.md         # Frontend README
+├── Dockerfile            # Dockerfile for deployment
+├── README.md             # Project README
+└── .gitignore            # Git ignore file
 
-### Explanation
+## Contributing
 
-- **backend/**: Contains all backend-related code.
-  - **app/**: The main application folder.
-    - **models/**: Contains the machine learning models.
-    - **api/**: Contains API endpoints.
-    - **core/**: Core functionalities like configuration and utilities.
-  - **tests/**: Contains test cases for the backend.
-  - **requirements.txt**: Lists all the Python dependencies.
-  - **Dockerfile**: Docker configuration for the backend.
+Contributions are welcome! Please read the [contribution guidelines](CONTRIBUTING.md) first.
 
-- **frontend/**: Contains all frontend-related code.
-  - **public/**: Public assets for the frontend.
-  - **src/**: Source code for the frontend application.
-    - **components/**: Reusable UI components.
-    - **pages/**: Different pages of the application.
-  - **package.json**: Lists all the JavaScript dependencies.
-  - **Dockerfile**: Docker configuration for the frontend.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
 
-- **data/**: Contains datasets and notebooks for data processing and model training.
-  - **raw/**: Raw datasets.
-  - **processed/**: Processed datasets.
-  - **notebooks/**: Jupyter notebooks for data preprocessing, model training, and evaluation.
+## License
 
-- **.gitignore**: Specifies files and directories to be ignored by Git.
-- **README.md**: Project documentation.
-- **docker-compose.yml**: Docker Compose configuration for running the entire application.
-
-By following this development process and project structure, we can efficiently collaborate and build a robust AI Data Analyst application.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

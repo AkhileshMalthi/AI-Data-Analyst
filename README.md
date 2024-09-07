@@ -1,38 +1,73 @@
-# AI-Data-Analyst
+# DataAnalyst: AI-Powered Data Analysis with LangChain and Llama Index
 
-This project builds a user-friendly system that understands user queries and performs data analysis based on them.
+## Overview
 
-### Project Overview
+**DataAnalyst** is an AI-driven application that automates data ingestion, analysis, and visualization using LangChain and Llama Index. The application utilizes Retrieval-Augmented Generation (RAG) techniques to provide deep insights and actionable results from user-provided data files, making data analysis intuitive and accessible.
 
-The system consists of three main modules:
+## Table of Contents
 
-1. **Natural Language Processing (NLP):**
-    * Identifies the intent behind user queries (e.g., trend analysis for sales data).
-    * Extracts relevant entities from queries (e.g., dates, metrics, data types).
-    * Utilizes NLP libraries like spaCy or NLTK for processing.
-    * Might leverage pre-trained models like BERT or GPT for advanced context understanding.
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-2. **Data Handling and Preparation:**
-    * Allows users to upload data in various formats (CSV, Excel) using libraries like Pandas.
-    * Implements data validation checks for data suitability.
+## Features
 
-3. **Execution Engine:**
-    * Generates Python code snippets based on interpreted queries to perform the required analysis.
-    * Employs a secure environment (like Docker) to run the generated code for user data and system safety.
+- **Automated Data Processing**: Automatically handles data cleaning, preprocessing, and feature engineering.
+- **Insight Generation**: Provides insights and summaries using advanced language models.
+- **Interactive Visualizations**: Offers data visualizations to help users understand their data better.
+- **User-Friendly Interface**: A web-based interface for seamless data uploads and analysis interactions.
 
-### User Interface
+## Tech Stack
 
-* A web interface allows users to type queries intuitively.
-* The interface might guide users on formulating effective questions.
-* A feedback mechanism allows users to improve the NLP model over time.
+- **Backend**: FastAPI, LangChain, Llama Index, LangGraph
+- **Frontend**: React
+- **Machine Learning**: Integration with GPT-3, GPT-4, or other large language models
+- **Data Processing**: Pandas, NumPy
+- **Visualization**: Matplotlib, Seaborn, Plotly
+- **Deployment**: Docker, AWS Free Tier, Google Cloud Free Tier
+- **Version Control**: Git, GitHub
 
-###  Additional Considerations
+## Project Structure
 
-* **Error Handling:** Implement mechanisms to handle errors in queries, data uploads, and code execution.
-* **Data Security:** Prioritize data security measures throughout the process.
-* **Visualization Integration:** Consider integrating data visualization tools to present analysis results effectively.
-* **Scalability:** Plan for future growth by incorporating a scalable architecture.
-
-### Getting Started
-
-This is a work-in-progress project. The specific setup instructions will be added as development progresses.
+```plaintext
+DataAnalyst/
+├── backend/
+│   ├── main.py                 # FastAPI application entry point
+│   ├── workflow.py             # LangChain and Llama Index workflow
+│   ├── data/
+│   │   ├── loader.py           # For data loading and preprocessing
+│   │   ├── cleaner.py          # For cleaning data
+│   │   └── transformer.py      # For transforming and feature engineering
+│   ├── models/
+│   │   ├── llm_model.py        # LLM interaction and utility functions
+│   │   └── multi_model.py      # Handling multiple models if needed
+│   ├── inference/
+│   │   ├── pipeline.py         # Inference pipeline for generating insights
+│   │   └── formatter.py        # Formatting results for output
+│   ├── utils/
+│   │   ├── logger.py           # Logging configuration
+│   │   └── config.py           # Configuration loader
+│   └── requirements.txt        # Backend dependencies
+├── frontend/
+│   ├── public/                 # Static files for the frontend
+│   ├── src/                    # Source code for the frontend
+│   │   ├── App.js              # Main UI component
+│   │   ├── components/         # Reusable UI components
+│   │   ├── api.js              # API interaction scripts
+│   │   └── styles/             # Styling for the UI
+│   ├── package.json            # Frontend dependencies and scripts
+│   └── README.md               # Frontend setup guide
+├── config/
+│   ├── config.yaml             # Configuration file for settings
+├── notebooks/
+│   ├── exploration.ipynb       # Jupyter notebooks for data exploration
+├── Dockerfile                  # Dockerfile for deployment
+├── README.md                   # Project documentation
+└── .gitignore                  # Git ignore file

@@ -1,8 +1,8 @@
-# DataAnalyst: AI-Powered Data Analysis with LangChain and Llama Index
+# Data analysis AI
 
 ## Overview
 
-**DataAnalyst** is an AI-driven application that automates data ingestion, analysis, and visualization using LangChain and Llama Index. The application employs an agentic architecture, with specialized agents handling different aspects of the data analysis workflow. Utilizing Retrieval-Augmented Generation (RAG) techniques, **DataAnalyst** provides deep insights and actionable results from user-provided data files, making data analysis intuitive and accessible.
+**DataAnalyst** is an AI-driven application that automates data ingestion, analysis, and visualization. The application employs an agentic architecture, with specialized agents handling different aspects of the data analysis workflow. Utilizing Retrieval-Augmented Generation (RAG) techniques, It provides deep insights and actionable results from user-provided data files, making data analysis intuitive and accessible.
 
 ## Table of Contents
 
@@ -28,8 +28,8 @@
 
 ## Tech Stack
 
-- **Backend**: FastAPI, LangChain, Llama Index, LangGraph
-- **Frontend**: React
+- **Backend**: FastAPI, LangChain, Llama Index, LangGraph, CrewAI
+- **Frontend**: Next
 - **Machine Learning**: Integration with GPT-3, GPT-4, or other large language models
 - **Data Processing**: Pandas, NumPy
 - **Visualization**: Matplotlib, Seaborn, Plotly

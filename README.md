@@ -1,8 +1,8 @@
-# DataAnalyst: AI-Powered Data Analysis with LangChain and Llama Index
+# DataAnalyst: AI-Powered Data Analysis with LangChain, CrewAI, and LangGraph
 
 ## Overview
 
-**DataAnalyst** is an AI-driven application that automates data ingestion, analysis, and visualization using LangChain and Llama Index. The application employs an agentic architecture, with specialized agents handling different aspects of the data analysis workflow. Utilizing Retrieval-Augmented Generation (RAG) techniques, **DataAnalyst** provides deep insights and actionable results from user-provided data files, making data analysis intuitive and accessible.
+**DataAnalyst** is an AI-driven application that automates data ingestion, analysis, and visualization using **LangChain**, **CrewAI**, and **LangGraph**. The application is built with a modular agentic architecture, where specialized agents handle different parts of the data analysis pipeline. Using advanced AI techniques, **DataAnalyst** transforms raw data into meaningful insights, making data analysis intuitive, scalable, and accessible.
 
 ## Table of Contents
 
@@ -20,17 +20,19 @@
 
 ## Features
 
-- **Automated Data Processing**: Automatically handles data cleaning, preprocessing, and feature engineering.
-- **Insight Generation**: Provides insights and summaries using advanced language models.
-- **Interactive Visualizations**: Offers data visualizations to help users understand their data better.
-- **User-Friendly Interface**: A web-based interface for seamless data uploads and analysis interactions.
-- **Agentic Workflow**: Modular agents manage discrete tasks in the data analysis process, ensuring robust, flexible, and scalable operations.
+- **Automated Data Processing**: Handles data cleaning, preprocessing, and feature engineering automatically.
+- **Insight Generation**: Delivers insights from the data using natural language queries and advanced language models.
+- **Interactive Visualizations**: Generates both interactive and static data visualizations to aid in data understanding.
+- **Agentic Workflow**: Uses an agentic architecture for modular, scalable, and robust data analysis operations.
+- **Seamless User Experience**: Web-based interface for data uploads and analysis interactions.
+- **Continuous Feedback and Improvement**: Collects user feedback to iteratively enhance the accuracy and relevance of analysis.
 
 ## Tech Stack
 
-- **Backend**: FastAPI, LangChain, Llama Index, LangGraph
+- **Backend**: FastAPI, LangChain, LangGraph
 - **Frontend**: React
-- **Machine Learning**: Integration with GPT-3, GPT-4, or other large language models
+- **AI Agents and Orchestration**: CrewAI for agent management and coordination
+- **Machine Learning**: Integration with GPT-4 or other large language models
 - **Data Processing**: Pandas, NumPy
 - **Visualization**: Matplotlib, Seaborn, Plotly
 - **Deployment**: Docker, AWS Free Tier, Google Cloud Free Tier
@@ -38,65 +40,69 @@
 
 ## Agentic Architecture
 
-DataAnalyst employs a sophisticated agentic approach where each agent is responsible for a specific aspect of the data analysis process. This design enables modular, maintainable, and scalable operations:
+The architecture is composed of multiple specialized agents, each managing a distinct task in the data analysis pipeline. This enables modularity, maintainability, and scalability:
 
-- **Data Ingestion Agent**: Handles data uploads, validation, and preprocessing.
-- **Data Exploration Agent**: Analyzes the dataset using natural language queries, leveraging LangChain and Llama Index for contextual understanding.
-- **Feature Engineering Agent**: Performs feature creation and transformation to prepare data for modeling.
-- **Model Selection Agent**: Chooses the most suitable machine learning model based on data characteristics and user requirements.
-- **Model Training Agent**: Trains the selected model with the preprocessed data and optimizes it for performance.
-- **Model Evaluation Agent**: Evaluates the trained model, providing insights into its performance and suggesting improvements.
-- **Visualization Agent**: Generates interactive and static visualizations to present the data and model results effectively.
-- **Feedback Improvement Agent**: Collects user feedback and iteratively improves the analysis process and model accuracy.
-- **Error Handling Agent**: Manages exceptions and errors during the analysis, ensuring a smooth user experience.
+- **Query Understanding Agent**: Interprets user queries and extracts intent using natural language understanding.
+- **Task Planning Agent**: Breaks down user intent into executable tasks and coordinates the execution order.
+- **Data Retrieval Agent**: Handles data ingestion, validation, and preprocessing of raw datasets.
+- **Code Generation Agent**: Dynamically creates Python code based on data characteristics and user requests.
+- **Execution Agent**: Executes the generated code in a secure environment and manages computational resources.
+- **Analysis Agent**: Performs statistical analysis and interprets data output.
+- **Visualization Agent**: Generates interactive visualizations to present the insights.
+- **Response Formulation Agent**: Synthesizes analysis results into user-friendly responses.
+- **Feedback Improvement Agent**: Collects feedback from the user and iteratively improves the system.
+- **Error Handling Agent**: Manages exceptions, ensuring smooth error recovery and user experience.
+
+**LangGraph** manages the sequential and conditional flow of tasks, while **CrewAI** handles agent collaboration, performance tracking, and coordination.
 
 ## Project Structure
 
 ```plaintext
 DataAnalyst/
 ├── agents/                         # Specialized agents for discrete tasks
-│   ├── data_ingestion_agent.py     # Handles data uploads, validation, and preprocessing
-│   ├── data_exploration_agent.py   # Conducts data analysis using LangChain and Llama Index
-│   ├── feature_engineering_agent.py# Manages feature creation and transformation
-│   ├── model_selection_agent.py    # Chooses the optimal machine learning model
-│   ├── model_training_agent.py     # Trains the selected machine learning model
-│   ├── model_evaluation_agent.py   # Evaluates model performance and interprets results
-│   ├── visualization_agent.py      # Creates data visualizations
-│   ├── feedback_improvement_agent.py# Collects feedback and enhances the system
-│   └── error_handling_agent.py     # Manages exceptions and errors during analysis
+│   ├── query_understanding_agent.py # Processes user queries
+│   ├── task_planning_agent.py      # Coordinates task execution
+│   ├── data_retrieval_agent.py     # Manages data ingestion and preprocessing
+│   ├── code_generation_agent.py    # Generates code dynamically for tasks
+│   ├── execution_agent.py          # Executes generated code and handles computation
+│   ├── analysis_agent.py           # Conducts data analysis
+│   ├── visualization_agent.py      # Generates visualizations
+│   ├── response_formulation_agent.py# Forms insights and responses
+│   ├── feedback_improvement_agent.py# Collects feedback and improves the system
+│   └── error_handling_agent.py     # Handles errors and exceptions
 ├── backend/
 │   ├── data/
-│   │   ├── loader.py               # For data loading and preprocessing
-│   │   ├── cleaner.py              # For data cleaning
-│   │   └── transformer.py          # For data transformation and feature engineering
+│   │   ├── loader.py               # Data loading functions
+│   │   ├── cleaner.py              # Data cleaning and validation utilities
+│   │   └── transformer.py          # Data transformation and feature engineering
 │   ├── models/
-│   │   ├── llm_model.py            # LLM interaction and utility functions
-│   │   └── multi_model.py          # Handling multiple models if needed
+│   │   ├── langchain_model.py      # LangChain interaction utilities
+│   │   └── crewai_model.py         # CrewAI integration for agent management
 │   ├── inference/
 │   │   ├── pipeline.py             # Inference pipeline for generating insights
-│   │   └── formatter.py            # Formatting results for output
+│   │   └── formatter.py            # Formatting output for the user
 │   ├── utils/
 │   │   ├── logger.py               # Logging configuration
-│   │   └── config.py               # Configuration loader
-│   ├── workflow.py                 # Coordinates communication between agents
+│   │   └── config.py               # Configuration management
+│   ├── workflow.py                 # Coordinates agent communication using LangGraph
 │   ├── main.py                     # FastAPI application entry point
 │   └── requirements.txt            # Backend dependencies
 ├── frontend/
-│   ├── public/                     # Static files for the frontend
-│   ├── src/                        # Source code for the frontend
+│   ├── public/                     # Static frontend assets
+│   ├── src/                        # React source code for the frontend
 │   │   ├── App.js                  # Main UI component
 │   │   ├── components/             # Reusable UI components
-│   │   ├── api.js                  # API interaction scripts
-│   │   └── styles/                 # Styling for the UI
-│   ├── package.json                # Frontend dependencies and scripts
-│   └── README.md                   # Frontend setup guide
+│   │   ├── api.js                  # API interaction logic
+│   │   └── styles/                 # Frontend styles and theming
+│   ├── package.json                # Frontend dependencies
+│   └── README.md                   # Frontend setup instructions
 ├── config/
-│   ├── config.yaml                 # Configuration file for settings
+│   ├── config.yaml                 # Configuration file
 ├── notebooks/
-│   ├── exploration.ipynb           # Jupyter notebooks for data exploration
-├── Dockerfile                      # Dockerfile for deployment
+│   ├── exploration.ipynb           # Jupyter notebook for exploration
+├── Dockerfile                      # Docker setup for deployment
 ├── README.md                       # Project documentation
-└── .gitignore                      # Git ignore file
+└── .gitignore                      # Git ignore rules
 ```
 
 ## Installation
@@ -151,10 +157,12 @@ DataAnalyst/
 
 ## Contributing
 
-We welcome contributions from the community! Please see our [contribution guidelines](CONTRIBUTING.md) for more details.
+We welcome contributions! Please follow our [contribution guidelines](CONTRIBUTING.md) for details on how to contribute.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
 ---
+
+Would you like to further customize any specific sections, or does this version fit your needs?

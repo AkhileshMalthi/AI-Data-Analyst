@@ -4,6 +4,7 @@
 
 **DataAnalyst** is an AI-driven application that automates data ingestion, analysis, and visualization using **LangChain**, **CrewAI**, and **LangGraph**. The application is built with a modular agentic architecture, where specialized agents handle different parts of the data analysis pipeline. Using advanced AI techniques, **DataAnalyst** transforms raw data into meaningful insights, making data analysis intuitive, scalable, and accessible.
 
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -29,10 +30,9 @@
 
 ## Tech Stack
 
-- **Backend**: FastAPI, LangChain, LangGraph
-- **Frontend**: React
-- **AI Agents and Orchestration**: CrewAI for agent management and coordination
-- **Machine Learning**: Integration with GPT-4 or other large language models
+- **Backend**: FastAPI, LangChain, Llama Index, LangGraph, CrewAI
+- **Frontend**: Next
+- **Machine Learning**: Integration with GPT-3, GPT-4, or other large language models
 - **Data Processing**: Pandas, NumPy
 - **Visualization**: Matplotlib, Seaborn, Plotly
 - **Deployment**: Docker, AWS Free Tier, Google Cloud Free Tier

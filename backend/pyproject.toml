@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = "AI Data Analyst"
+authors = ["NarasimhaSaladi <narasimhasaladi7@gmail.com>"]
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<=3.13"
+scikit-learn = "^1.5.2"
+numpy = "^1.26.0"
+scipy = "^1.14.1"
+crewai = "^0.67.1"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+flake8 = "^7.1.1"
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
